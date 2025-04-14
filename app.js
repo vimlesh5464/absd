@@ -11,7 +11,7 @@ const flash = require("connect-flash");
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const User = require("./models/user.js");
-const expressLayouts = require('express-ejs-layouts');
+
 
 
 const listingRouter = require("./routes/listing.js");
@@ -39,8 +39,7 @@ app.use(methodOverride("_method"));
 app.use(express.static(path.join(__dirname, "/public")));
 
 
-app.use(expressLayouts);
-app.set('layout', 'layouts/boilerplate'); 
+
 
 const sessionOption = {
   secret: "mysupersecretcode",
@@ -82,7 +81,7 @@ app.get("/demouser", async (req, res) => {
 });
 
 // 👇 Now user routes mounted at root ("/") — so /signup and /login work
-app.use("/users", userRouter);
+app.use("/", userRouter);
 app.use("/listings", listingRouter);
 app.use("/listings/:id/reviews", reviewRouter);
 
