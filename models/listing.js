@@ -9,14 +9,8 @@ const listingSchema = new Schema({
   },
   description: String,
   image: {
-    type: String,
-    default: "https://a0.muscache.com/im/pictures/miso/Hosting-973612202639577969/original/b537c57b-300e-4c31-b610-b193b06ea7b1.jpeg?im_w=960",
-    set: (v) => {
-      if (typeof v === "object" && v.url) {
-        return v.url;
-      }
-      return typeof v === "string" ? v : "https://a0.muscache.com/im/pictures/miso/Hosting-973612202639577969/original/b537c57b-300e-4c31-b610-b193b06ea7b1.jpeg?im_w=960";
-    }
+    url: String,
+    filename: String,
   },
   price: Number,
   location: String,
