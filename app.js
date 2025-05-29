@@ -75,14 +75,14 @@ app.get("/", (req, res) => {
   res.send("you are amazing");
 });
 
-app.get("/demouser", async (req, res) => {
-  let fakeUser = new User({
-    email: "student@gmail.com",
-    username: "delta-student",
-  });
-  let registeruser = await User.register(fakeUser, "helloworld");
-  res.send(registeruser);
-});
+// app.get("/demouser", async (req, res) => {
+//   let fakeUser = new User({
+//     email: "student@gmail.com",
+//     username: "delta-student",
+//   });
+//   let registeruser = await User.register(fakeUser, "helloworld");
+//   res.send(registeruser);
+// });
 
 // 👇 Now user routes mounted at root ("/") — so /signup and /login work
 app.use("/", userRouter);

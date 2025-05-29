@@ -7,7 +7,6 @@ const wrapAsync = require("../utils/wrapAsync");
 const { saveRedirectUrl } = require("../middleware");
 const userControllers = require("../controllers/user.js")
 
-
 router.route("/signup")
 .get(userControllers.signupGet)
 .post(wrapAsync(userControllers.signupPost));
@@ -23,5 +22,4 @@ router.route("/login")
 );
 
 router.get("/logout", userControllers.logout)
-
 module.exports = router;
